@@ -39,7 +39,7 @@ export default class Creatematiere extends Component {
   render() {
     return (
       <div>
-        <h3>Ajouter matire</h3>
+        <h3>Ajouter matière</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group"> 
             <label>matire: </label>

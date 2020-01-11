@@ -12,7 +12,7 @@ const Professeur= props => (
     
     <td>{props.professeur.date.substring(0,10)}</td>
     <td>
-      <Link to={"/gestionprof/edit/"+props.professeur._id}>modifier</Link> | <a href="#" onClick={() => { props.deletefeliere(props.feliere._id) }}>supprimer</a>
+      <Link to={"/gestionprof/edit/"+props.professeur._id}>modifier</Link> | <a href="#" onClick={() => { props.deleteprof(props.professeur._id) }}>supprimer</a>
     </td>
   </tr>
 )

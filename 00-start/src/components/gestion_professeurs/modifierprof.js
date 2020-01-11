@@ -3,15 +3,15 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class EditExercise extends Component {
+export default class Editprof extends Component {
   constructor(props) {
     super(props);
 
     this.onChangematierename = this.onChangematierename.bind(this);
     this.onChangeNom = this.onChangeNom.bind(this);
-    this.onChangePrenom= this.onChangePrenom.bind(this);
-    this.onChangeEmail= this.onChangeEmail.bind(this);
-    this.onChangeTel= this.onChangeTel.bind(this);
+    this.onChangePrenom = this.onChangePrenom.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangeTel = this.onChangeTel.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -19,12 +19,13 @@ export default class EditExercise extends Component {
       matierename: '',
       Nom : '',
       Prenom : '',
-      Email : '',
-      Tel : '',
+      Email: 0,
+      Tel :'',
       date: new Date(),
-      mat: []
+      Matiere: []
     }
   }
+
   componentDidMount() {
     axios.get('http://localhost:7000/prof/'+this.props.match.params.id)
       .then(response => {
@@ -41,11 +42,11 @@ export default class EditExercise extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:7000/mat/')
+    axios.get('http://localhost:7000/prof/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
-            mat: response.data.map(matt=> matt.matierename),
+            Matiere: response.data.map(mt => mt.matierename),
           })
         }
       })
@@ -55,12 +56,14 @@ export default class EditExercise extends Component {
 
   }
 
+  
   onChangematierename(e) {
     this.setState({
       matierename: e.target.value
     })
   }
-  onChangefNom(e) {
+
+  onChangeNom(e) {
     this.setState({
       Nom: e.target.value
     })
@@ -68,7 +71,7 @@ export default class EditExercise extends Component {
 
   onChangePrenom(e) {
     this.setState({
-     Prenom: e.target.value
+      Prenom: e.target.value
     })
   }
 
@@ -77,6 +80,7 @@ export default class EditExercise extends Component {
       Email: e.target.value
     })
   }
+
   onChangeTel(e) {
     this.setState({
       Tel : e.target.value
@@ -94,25 +98,25 @@ export default class EditExercise extends Component {
 
     const data = {
       matierename: this.state.matierename,
-      Nom : this.state.Nom,
+      Nom: this.state.Nom,
       Prenom: this.state.Prenom,
       Email: this.state.Email,
-      Tel : this.state.Tel,
+      Tel: this.state.Tel,
       date: this.state.date
     }
 
     console.log(data);
 
-    axios.post('http://localhost:7000/prof/add', data)
+    axios.post('http://localhost:7000/prof/update/' + this.props.match.params.id, data)
       .then(res => console.log(res.data));
 
-    window.location = '/gestionfprof';
+    window.location = '/gestionprof';
   }
-  
+
   render() {
     return (
-      <div>
-      <h3>ajouter Un professeur</h3>
+    <div>
+      <h3>modifier Professeur</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
           <label>Matière: </label>
@@ -122,10 +126,10 @@ export default class EditExercise extends Component {
               value={this.state.matierename}
               onChange={this.onChangematierename}>
               {
-                this.state.mat.map(function(mats) {
+                this.state.Matiere.map(function(name) {
                   return <option 
-                    key={mats}
-                    value={mats}>{mats}
+                    key={name}
+                    value={name}>{name}
                     </option>;
                 })
               }
@@ -140,8 +144,9 @@ export default class EditExercise extends Component {
               onChange={this.onChangeNom}
               />
         </div>
+
         <div className="form-group"> 
-          <label>Prenom: </label>
+          <label>Prenom : </label>
           <input  type="text"
               required
               className="form-control"
@@ -150,7 +155,7 @@ export default class EditExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Email: </label>
+          <label>Email  : </label>
           <input 
               type="text" 
               className="form-control"
@@ -158,8 +163,9 @@ export default class EditExercise extends Component {
               onChange={this.onChangeEmail}
               />
         </div>
+
         <div className="form-group">
-          <label>Téléphone: </label>
+          <label>Tel  : </label>
           <input 
               type="text" 
               className="form-control"
@@ -178,10 +184,10 @@ export default class EditExercise extends Component {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Ajouter " className="btn btn-primary" />
+          <input type="submit" value="Modifier" className="btn btn-primary" />
         </div>
       </form>
     </div>
-    );
+    )
   }
 }

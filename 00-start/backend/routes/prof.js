@@ -27,7 +27,7 @@ router.route('/add').post((req, res) => {
   });
 
   newProf.save()
-  .then(() => res.json('Professeur bien joute'))
+  .then(() => res.json('Professeur bien jouté'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -58,6 +58,7 @@ router.route('/update/:id').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
     })
     .catch(err => res.status(400).json('Error: ' + err));
+    
 });
 
 module.exports = router;

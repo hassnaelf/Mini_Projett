@@ -16,6 +16,7 @@ class GestionEtudiant extends Component{
     
       <Switch>
       <Route path="/gestionetudiant/create" exact component={FormulaaireInscription} />
+      <Route path="/gestionetudiant" exact component={List} />
       </Switch>
      
      

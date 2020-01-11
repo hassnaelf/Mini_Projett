@@ -63,6 +63,7 @@ export default class EtudiantList extends Component {
               <th>CNE</th>
               <th>Email</th>
               <th>Tel</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

@@ -28,7 +28,7 @@ export default class CreateExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:7000/prof/')
+    axios.get('http://localhost:7000/mat/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({

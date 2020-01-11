@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import React ,{Component} from 'react';
-import Navbar from "../components/navbar"
-import FiliereList from "../components/filiere-list.component";
-import EditFiliere from "../components/edit-filiere.component";
-import CreateFiliere from "../components/create-filiere.component";
-import CreateFormation from "../components/create-formation.component";
+import Navbar from "./navbar"
+import FiliereList from "./filiere-list.component";
+import EditFiliere from "./edit-filiere.component";
+import CreateFiliere from "./create-filiere.component";
+import CreateFormation from "./create-formation.component";
 //import home from './home'
 
 class Gestionfeliere  extends Component{

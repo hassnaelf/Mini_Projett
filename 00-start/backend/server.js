@@ -20,17 +20,17 @@ connection.once('open', () => {
 const etudiantsRouter = require('./routes/etudiant');
 const   filiereRouter = require('./routes/filiere');
 const   formationRouter = require('./routes/formation');
-
-/*const profRouter = require('./routes/prof');
+const profRouter = require('./routes/prof');
 const matRouter = require('./routes/mat');
-*/
 
+
+
+app.use('/etudiant',etudiantsRouter );
 app.use('/filiere', filiereRouter);
 app.use('/formation', formationRouter);
-app.use('/etudiant',etudiantsRouter );
-/*app.use('/prof', profRouter);
+app.use('/prof', profRouter);
 app.use('/mat', matRouter);
-app.use('/inscription.etudiant.route',etudiantsRouter );*/
+
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

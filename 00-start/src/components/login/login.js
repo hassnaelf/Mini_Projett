@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
-import LoginService from '../services/LoginService';
-import Message from '../elements/Message';
-import Error from '../elements/Error';
 import  './login.css'
-import { COMMON_FIELDS, REGISTRATION_FIELDS, LOGIN_FIELDS, LOGIN_MESSAGE, ERROR_IN_LOGIN } from '../MessageBundle';
 
 export default class Login extends Component {
 	constructor(props) {
@@ -45,8 +40,7 @@ export default class Login extends Component {
 	
 
 	render() {
-		const { loginSuccess, error } = this.state;
-
+		
 		return (
 			<div class="container">
 			<div class="d-flex justify-content-center h-100">

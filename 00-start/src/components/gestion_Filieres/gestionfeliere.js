@@ -20,7 +20,7 @@ class Gestionfeliere  extends Component{
       
       <Route path="/gestionfeliere/edit/:id" component={EditFiliere} />
       <Route path="/gestionfeliere/create" component={CreateFiliere} />
-      <Route path="/gestionfeliere/user" component={CreateFormation} />
+      <Route path="/gestionfeliere/formation" component={CreateFormation} />
       
       
       </div>

@@ -4,7 +4,7 @@ import React ,{Component} from 'react';
 import NavBarEtudiant from "./NavBarEtudiant.js";
 import  FormulaaireInscription  from  "./create-etudiant.component.js";
 import List from './create-liste-etudiant.js'
-
+import   EditEtudiant  from './edit-etudiant-component.js';
 class GestionEtudiant extends Component{
     render(){
         
@@ -16,6 +16,7 @@ class GestionEtudiant extends Component{
     
       <Switch>
       <Route path="/gestionetudiant/create" exact component={FormulaaireInscription} />
+      <Route path="/gestionetudiant/edit/:id" component={ EditEtudiant} />
       <Route path="/gestionetudiant" exact component={List} />
       </Switch>
      

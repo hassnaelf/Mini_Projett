@@ -17,7 +17,6 @@ class Gestionprof extends Component{
       <Navbar />
       <br/>
       <Route path="/gestionprof" exact component={profList} />
-      
       <Route path="/gestionprof/edit/:id" component={Editprof} />
       <Route path="/gestionprof/create" component={Createprof} />
       <Route path="/gestionprof/user" component={Creatematiere} />

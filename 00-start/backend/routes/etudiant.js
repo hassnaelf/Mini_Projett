@@ -30,4 +30,33 @@ router.route('/add').post((req, res) => {
 
 
 
+router.route('/:id').get((req, res) => {
+  Etudiant .findById(req.params.id)
+    .then(etud=> res.json(etud))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:id').delete((req, res) => {
+  Etudiant.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Etudiant deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update/:id').post((req, res) => {
+  Etudiant .findById(req.params.id)
+    .then(etudiant=> {
+      etudiant.Nom= req.body.Nom;
+      etudiant.Prenom= req.body.Prenom;
+      etudiant.CIN =req.body.CIN;
+      etudiant.CNE= req.body.CNE
+      etudiant.Email=req.body.Email;
+      etudiant.Tel=req.body.Tel;
+
+      etudiant.save()
+        .then(() => res.json('Etudiant updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;

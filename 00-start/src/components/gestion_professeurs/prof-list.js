@@ -12,7 +12,7 @@ const Professeur= props => (
     
     <td>{props.professeur.date.substring(0,10)}</td>
     <td>
-      <Link to={"/gestionprof/edit/"+props.feliere._id}>modifier</Link> | <a href="#" onClick={() => { props.deletefeliere(props.feliere._id) }}>supprimer</a>
+      <Link to={"/gestionprof/edit/"+props.professeur._id}>modifier</Link> | <a href="#" onClick={() => { props.deletefeliere(props.feliere._id) }}>supprimer</a>
     </td>
   </tr>
 )
@@ -54,7 +54,7 @@ export default class profList extends Component {
   render() {
     return (
       <div>
-        <h3>liste des feliere</h3>
+        <h3>Liste des professeurs</h3>
         <table className="table">
           <thead className="thead-light">
             <tr>
@@ -63,6 +63,7 @@ export default class profList extends Component {
               <th>Prenom</th>
               <th>Email</th>
               <th>Tel</th>
+              <th>Date</th>
               <th>Actions</th>
             </tr>
           </thead>

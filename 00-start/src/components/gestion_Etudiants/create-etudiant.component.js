@@ -81,7 +81,7 @@ export default class FormulaaireInscription extends Component {
 
     axios.post('http://localhost:7000/etudiant/add', data)
       .then(res => console.log(res.data));
-
+       window.location= '/gestionetudiant';
    
   }
 
@@ -144,12 +144,10 @@ export default class FormulaaireInscription extends Component {
               onChange={this.onChangeTel}
               />
         </div>
-
-        <div className="container-contact100-form-btn ">
-                    <button className="contact100-form-btn   "     value="Login">
-                      Ajouter
-                    </button>
-                </div>
+        <div className="form-group">
+            <input type="submit" value="Ajouter" className="btn btn-primary" />
+          </div>
+        
          
        
       </form>

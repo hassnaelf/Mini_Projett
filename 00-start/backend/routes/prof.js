@@ -9,16 +9,16 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
  
-  const Matiere= req.body.Matiere;
+  const matierename= req.body.matierename;
   const Nom = req.body.Nom;
-  const Prenom = req.body.Nom;
+  const Prenom = req.body.Prenom;
   const Email = req.body.Email;
   const Tel= req.body.Tel;
   const date = Date.parse(req.body.date);
 
   const newProf = new prof({
   
-    Matiere,
+    matierename,
     Nom,
     Prenom,
     Email,
@@ -46,7 +46,7 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
  prof.findById(req.params.id)
     .then(profess => {
-      profess.Matiere = req.body.Matiere;
+      profess.matierename = req.body.matierename;
       profess.Nom = req.body.Nom;
       profess.Prenom = req.body.Prenom;
       profess.Email = req.body.Email;

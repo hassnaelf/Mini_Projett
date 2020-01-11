@@ -17,7 +17,7 @@ export default class Navbar extends Component {
           <Link to="/gestionfeliere/create" className="nav-link">Ajouter félière</Link>
           </li>
           <li className="navbar-item">
-          <Link to="/gestionfeliere/user" className="nav-link">ajouter formation</Link>
+          <Link to="/gestionfeliere/formation" className="nav-link">ajouter formation</Link>
           </li>
           
         </ul>

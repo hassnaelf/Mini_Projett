@@ -2,50 +2,52 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const Feliere = props => (
+const Professeur= props => (
   <tr>
-    <td>{props.feliere.username}</td>
-    <td>{props.feliere.felierename}</td>
-    <td>{props.feliere.description}</td>
-    <td>{props.feliere.capacity}</td>
-    <td>{props.feliere.date.substring(0,10)}</td>
+    <td>{props.professeur.matierename}</td>
+    <td>{props.professeur.Nom}</td>
+    <td>{props.professeur.Prenom}</td>
+    <td>{props.professeur.Email}</td>
+    <td>{props.professeur.Tel}</td>
+    
+    <td>{props.professeur.date.substring(0,10)}</td>
     <td>
       <Link to={"/gestionprof/edit/"+props.feliere._id}>modifier</Link> | <a href="#" onClick={() => { props.deletefeliere(props.feliere._id) }}>supprimer</a>
     </td>
   </tr>
 )
 
-export default class feliereList extends Component {
+export default class profList extends Component {
   constructor(props) {
     super(props);
 
-    this.deletefeliere= this.deletefeliere.bind(this)
+    this.deleteprof= this.deleteprof.bind(this)
 
-    this.state = {felieres: []};
+    this.state = {professeurs: []};
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/prof/')
+    axios.get('http://localhost:7000/prof/')
       .then(response => {
-        this.setState({ felieres: response.data })
+        this.setState({ professeurs: response.data })
       })
       .catch((error) => {
         console.log(error);
       })
   }
 
-  deletefeliere(id) {
-    axios.delete('http://localhost:5000/prof/'+id)
+  deleteprof(id) {
+    axios.delete('http://localhost:7000/prof/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({
-      felieres: this.state.felieres.filter(el => el._id !== id)
+      professeurs: this.state.professeurs.filter(el => el._id !== id)
     })
   }
 
- feliereList() {
-    return this.state.felieres.map(currentfeliere => {
-      return <Feliere feliere={currentfeliere} deletefeliere={this.deletefeliere} key={currentfeliere._id}/>;
+ profList() {
+    return this.state.professeurs.map(currentprof => {
+      return <Professeur professeur={currentprof} deleteprof={this.deleteprof} key={currentprof._id}/>;
     })
   }
 
@@ -56,16 +58,16 @@ export default class feliereList extends Component {
         <table className="table">
           <thead className="thead-light">
             <tr>
-              <th>Username</th>
-              <th>nom feliere</th>
-              <th>Description</th>
-              <th>capacity</th>
-              <th>Date</th>
+              <th>Matière</th>
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Email</th>
+              <th>Tel</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            { this.feliereList() }
+            { this.profList() }
           </tbody>
         </table>
       </div>

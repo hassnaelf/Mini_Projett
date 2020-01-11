@@ -28,7 +28,7 @@ export default class Creatematiere extends Component {
 
     console.log(matiere);
 
-    axios.post('http://localhost:5000/mat/add', matiere)
+    axios.post('http://localhost:7000/mat/add', matiere)
       .then(res => console.log(res.data));
 
     this.setState({

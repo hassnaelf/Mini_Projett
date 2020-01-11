@@ -47,7 +47,7 @@ export default class CreateExercise extends Component {
       matierename: e.target.value
     })
   }
-  onChangefNom(e) {
+  onChangeNom(e) {
     this.setState({
       Nom: e.target.value
     })

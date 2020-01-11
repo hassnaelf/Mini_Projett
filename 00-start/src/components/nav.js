@@ -20,11 +20,8 @@ class Navbar extends React.Component {
             professeurs</a>
               
             </div>
-            <span class="navbar-text d-none d-lg-inline-block">Is the best</span>
-            <form class="form-inline">
-              <input type="text" class="form-control mr-2" placeholder="chercher"/>
-              <button type="submit" class="btn btn-outline-light">GO</button>>
-            </form>
+           
+          
           </div>
         </nav>
       </section>

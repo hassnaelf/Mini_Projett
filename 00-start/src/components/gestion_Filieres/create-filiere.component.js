@@ -148,12 +148,10 @@ export default class CreateFiliere extends Component {
           </div>
         </div>
 
-        <div className="container-contact100-form-btn ">
-                    <button className="contact100-form-btn   "     value="Login">
-                      Ajouter
-                    </button>
-                </div>
-         
+      
+                <div className="form-group">
+                <input type="submit" value="Ajouter" className="btn btn-warning" />
+              </div>
        
       </form>
     </div>

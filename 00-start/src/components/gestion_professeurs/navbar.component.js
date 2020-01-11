@@ -14,11 +14,12 @@ export default class Navbar extends Component {
           <Link to="/gestionprof" className="nav-link">professeur</Link>
           </li>
           <li className="navbar-item">
-          <Link to="/gestionprof/create" className="nav-link">Ajouter prof</Link>
+          <Link to="/gestionprof/create" className="nav-link">Ajouter professeur</Link>
           </li>
           <li className="navbar-item">
           <Link to="/gestionprof/user" className="nav-link">ajouter  matiere</Link>
           </li>
+          
         </ul>
         </div>
       </nav>

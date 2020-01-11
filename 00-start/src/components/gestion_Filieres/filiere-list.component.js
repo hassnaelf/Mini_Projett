@@ -11,7 +11,7 @@ const Feliere = props => (
     <td>{props.feliere.capacity}</td>
     <td>{props.feliere.date.substring(0,10)}</td>
     <td>
-      <Link to={"/gestionfeliere/edit/"+props.feliere._id}>modifier</Link> | <a href="#" onClick={() => { props.deletefeliere(props.feliere._id) }}>supprimer</a>
+      <Link className="btn btn-warning" to={"/gestionfeliere/edit/"+props.feliere._id}>modifier</Link> | <a  className="btn btn-warning" href="#" onClick={() => { props.deletefeliere(props.feliere._id) }}>supprimer</a>
     </td>
   </tr>
 )

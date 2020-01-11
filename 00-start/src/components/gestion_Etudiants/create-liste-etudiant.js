@@ -11,7 +11,7 @@ const Etudiant= props => (
     <td>{props.etudiant.Email}</td>
     <td>{props.etudiant.Tel}</td>
     <td>
-      <Link to={"/gestionetudiant/edit/"+props.etudiant._id}>modifier</Link> | <a href="#" onClick={() => { props.deletetudiant(props.etudiant._id) }}>supprimer</a>
+      <Link className="btn btn-warning" to={"/gestionetudiant/edit/"+props.etudiant._id}>modifier</Link> | <a  className="btn btn-warning" href="#" onClick={() => { props.deletetudiant(props.etudiant._id) }}>supprimer</a>
     </td>
   </tr>
 )
@@ -43,6 +43,10 @@ export default class EtudiantList extends Component {
         etudiants: this.state.etudiants.filter(el => el._id !== id)
     })
   }
+  recherche=(e)=>{this.setState({
+    etudiants: this.state.etudiants.filter(el => el.Nom.indexof(e.target.values()))
+})
+  }
 
   EtudiantList() {
     return this.state.etudiants.map(currentetudiant => {
@@ -53,7 +57,11 @@ export default class EtudiantList extends Component {
   render() {
     return (
       <div>
-        <h3>liste des étudiants</h3>
+    
+       
+            <br/><br/>
+        <h5>liste des étudiants</h5>
+        <br/>
         <table className="table">
           <thead className="thead-light">
             <tr>

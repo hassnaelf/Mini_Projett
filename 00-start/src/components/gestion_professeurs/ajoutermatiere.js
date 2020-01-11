@@ -51,7 +51,7 @@ export default class Creatematiere extends Component {
                 />
           </div>
           <div className="form-group">
-            <input type="submit" value="Ajouter" className="btn btn-primary" />
+            <input type="submit" value="Ajouter" className="btn btn-warning" />
           </div>
         </form>
       </div>

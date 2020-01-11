@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class Editprof extends Component {
+
   constructor(props) {
     super(props);
 
@@ -184,7 +185,7 @@ export default class Editprof extends Component {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Modifier" className="btn btn-primary" />
+          <input type="submit" value="Modifier"  className="btn btn-warning"/>  
         </div>
       </form>
     </div>

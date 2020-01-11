@@ -164,7 +164,7 @@ export default class EditFiliere extends Component {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Modifier" className="btn btn-primary" />
+          <input type="submit" value="Modifier" className="btn btn-warning"/>
         </div>
       </form>
     </div>

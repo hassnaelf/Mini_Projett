@@ -53,11 +53,9 @@ export default class CreateFormation extends Component {
           </div>
           <div className="form-group">
            
-          <div className="container-contact100-form-btn ">
-                    <button className="contact100-form-btn   "     value="Login">
-                      Ajouter
-                    </button>
-                </div>
+          <div className="form-group">
+                <input type="submit" value="Ajouter" className="btn btn-warning" />
+              </div>
          
           </div>
         </form>

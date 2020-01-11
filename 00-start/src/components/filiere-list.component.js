@@ -16,7 +16,7 @@ const Feliere = props => (
   </tr>
 )
 
-export default class feliereList extends Component {
+export default class FiliereList extends Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +26,7 @@ export default class feliereList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/')
+    axios.get('http://localhost:4000/filiere/')
       .then(response => {
         this.setState({ felieres: response.data })
       })
@@ -36,7 +36,7 @@ export default class feliereList extends Component {
   }
 
   deletefeliere(id) {
-    axios.delete('http://localhost:5000/exercises/'+id)
+    axios.delete('http://localhost:4000/filiere/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({

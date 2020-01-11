@@ -3,7 +3,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class EditExercise extends Component {
+export default class EditFiliere extends Component {
   constructor(props) {
     super(props);
 
@@ -20,12 +20,12 @@ export default class EditExercise extends Component {
       description: '',
       capacity: 0,
       date: new Date(),
-      users: []
+      formation: []
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/'+this.props.match.params.id)
+    axios.get('http://localhost:4000/filiere/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -39,11 +39,11 @@ export default class EditExercise extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:5000/users/')
+    axios.get('http://localhost:4000/filiere/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
-            users: response.data.map(user => user.username),
+            formation: response.data.map(user => user.username),
           })
         }
       })
@@ -97,7 +97,7 @@ export default class EditExercise extends Component {
 
     console.log(feliere);
 
-    axios.post('http://localhost:5000/exercises/update/' + this.props.match.params.id, feliere)
+    axios.post('http://localhost:4000/filiere/update/' + this.props.match.params.id, feliere)
       .then(res => console.log(res.data));
 
     window.location = '/gestionfeliere';
@@ -109,14 +109,14 @@ export default class EditExercise extends Component {
       <h3>modifier feliere</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
-          <label>Username: </label>
+          <label>Formation: </label>
           <select ref="userInput"
               required
               className="form-control"
               value={this.state.username}
               onChange={this.onChangeUsername}>
               {
-                this.state.users.map(function(user) {
+                this.state.formation.map(function(user) {
                   return <option 
                     key={user}
                     value={user}>{user}

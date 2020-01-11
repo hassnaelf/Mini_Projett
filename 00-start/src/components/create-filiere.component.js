@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'bootstrap/dist/css/bootstrap.css';
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class CreateExercise extends Component {
+export default class CreateFiliere extends Component {
   constructor(props) {
     super(props);
 
@@ -148,10 +148,12 @@ export default class CreateExercise extends Component {
           </div>
         </div>
 
-        
-          <button className="contact100-form-btn   "    value="Ajouter ">
-                     Ajouter
+        <div className="container-contact100-form-btn ">
+                    <button className="contact100-form-btn   "     value="Login">
+                      Ajouter
                     </button>
+                </div>
+         
        
       </form>
     </div>

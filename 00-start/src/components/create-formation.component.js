@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 
-export default class CreateUser extends Component {
+export default class CreateFormation extends Component {
   constructor(props) {
     super(props);
 
@@ -53,9 +53,12 @@ export default class CreateUser extends Component {
           </div>
           <div className="form-group">
            
-            <button className="contact100-form-btn   "    value="Ajouter ">
+          <div className="container-contact100-form-btn ">
+                    <button className="contact100-form-btn   "     value="Login">
                       Ajouter
                     </button>
+                </div>
+         
           </div>
         </form>
       </div>

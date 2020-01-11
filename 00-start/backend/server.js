@@ -20,15 +20,19 @@ connection.once('open', () => {
 
 const   filiereRouter = require('./routes/filiere');
 const   formationRouter = require('./routes/formation');
+const registrationRoutes = require('./routes/login');
+
 /*const profRouter = require('./routes/prof');
 const matRouter = require('./routes/mat');
 
-const etudiantsRouter = require('./routes/inscription.etudiant.route');
 
 */
+const etudiantsRouter = require('./routes/etudiant');
 
 app.use('/filiere', filiereRouter);
 app.use('/formation', formationRouter);
+app.use('/login', registrationRoutes);
+app.use('/etudiant',etudiantsRouter );
 /*app.use('/prof', profRouter);
 app.use('/mat', matRouter);
 app.use('/inscription.etudiant.route',etudiantsRouter );*/

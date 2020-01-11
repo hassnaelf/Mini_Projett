@@ -14,7 +14,7 @@ router.route('/add').post((req, res) => {
   const capacity = Number(req.body.capacity);
   const date = Date.parse(req.body.date);
 
-  const newExercise = new Feliere({
+  const newFiliere = new Feliere({
     username,
     felierename,
     description,
@@ -22,7 +22,7 @@ router.route('/add').post((req, res) => {
     date,
   });
 
-  newExercise.save()
+  newFiliere.save()
   .then(() => res.json('Exercise added!'))
   .catch(err => res.status(400).json('Error: ' + err));
 });

@@ -12,14 +12,11 @@ class GestionEtudiant extends Component{
 
     <Router>
       <div className="container">
-     
-    
       <NavBarEtudiant />
     
-      <Route path="/gestionetudiant" exact component={List} />
-    
+      <Switch>
       <Route path="/gestionetudiant/create" exact component={FormulaaireInscription} />
-    
+      </Switch>
      
      
    

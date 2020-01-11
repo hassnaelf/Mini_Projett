@@ -25,7 +25,7 @@ export default class EditFiliere extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/filiere/'+this.props.match.params.id)
+    axios.get('http://localhost:7000/filiere/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -39,7 +39,7 @@ export default class EditFiliere extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:4000/filiere/')
+    axios.get('http://localhost:7000/filiere/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -97,7 +97,7 @@ export default class EditFiliere extends Component {
 
     console.log(feliere);
 
-    axios.post('http://localhost:4000/filiere/update/' + this.props.match.params.id, feliere)
+    axios.post('http://localhost:7000/filiere/update/' + this.props.match.params.id, feliere)
       .then(res => console.log(res.data));
 
     window.location = '/gestionfeliere';

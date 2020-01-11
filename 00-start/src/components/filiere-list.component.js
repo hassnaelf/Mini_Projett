@@ -26,7 +26,7 @@ export default class FiliereList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/filiere/')
+    axios.get('http://localhost:7000/filiere/')
       .then(response => {
         this.setState({ felieres: response.data })
       })
@@ -36,7 +36,7 @@ export default class FiliereList extends Component {
   }
 
   deletefeliere(id) {
-    axios.delete('http://localhost:4000/filiere/'+id)
+    axios.delete('http://localhost:7000/filiere/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({

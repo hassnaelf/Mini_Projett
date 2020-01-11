@@ -11,7 +11,7 @@ router.route('/add').post((req, res) => {
   const username = req.body.username;
   const felierename = req.body.felierename;
   const description = req.body.description;
-  const capacity = Number(req.body.capacity);
+  const capacity = Number(req.body.capacity);  
   const date = Date.parse(req.body.date);
 
   const newFiliere = new Feliere({

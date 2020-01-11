@@ -1,6 +1,5 @@
 const express = require('express');
 const LoginRoutes = express.Router();
-const bcrypt = require('bcryptjs');
 let Administrateur = require('./login.model');
 
 
@@ -13,8 +12,7 @@ LoginRoutes .route('/identifier').post(function (req, res) {
 		
 		if(!user) res.sendStatus(204);
 		else {
-			bcrypt.compare(req.body.password, user.password)
-			.then(passwordMatch => passwordMatch ? res.sendStatus(200) : res.sendStatus(204))
+			
 			alert('ok');
 		}
 	})

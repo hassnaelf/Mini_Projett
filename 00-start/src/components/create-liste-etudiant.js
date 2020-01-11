@@ -11,7 +11,7 @@ const Etudiant= props => (
     <td>{props.etudiant.Email}</td>
     <td>{props.etudiant.Tel}</td>
     <td>
-      <Link to={"/gestionEtudiant/edit/"+props.etudiant._id}>modifier</Link> | <a href="#" onClick={() => { props.deletetudiant(props.etudiant._id) }}>supprimer</a>
+      <Link to={"/gestionetudiant/edit/"+props.etudiant._id}>modifier</Link> | <a href="#" onClick={() => { props.deletetudiant(props.etudiant._id) }}>supprimer</a>
     </td>
   </tr>
 )
@@ -26,7 +26,7 @@ export default class EtudiantList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/etudiant/')
+    axios.get('http://localhost:7000/etudiant/')
       .then(response => {
         this.setState({ etudiants: response.data })
       })
@@ -36,7 +36,7 @@ export default class EtudiantList extends Component {
   }
 
   deletetudiant(id) {
-    axios.delete('http://localhost:4000/etudiant/'+id)
+    axios.delete('http://localhost:7000/etudiant/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({

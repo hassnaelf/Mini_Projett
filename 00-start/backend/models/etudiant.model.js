@@ -16,3 +16,6 @@ const EtudiantSchema = new Schema({
 const Etudiant = mongoose.model('Etudiant', EtudiantSchema);
 
 module.exports = Etudiant;
+
+
+

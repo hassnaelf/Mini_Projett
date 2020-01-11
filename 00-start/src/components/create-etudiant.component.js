@@ -1,171 +1,159 @@
-import  React,{Component}  from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import   './etudiant.css';
-import  axios  from 'axios';
+import React, { Component } from 'react';
+import axios from 'axios';
+import DatePicker from 'react-datepicker';
+import 'bootstrap/dist/css/bootstrap.css';
+import "react-datepicker/dist/react-datepicker.css";
 
-class  FormulaaireInscription extends React.Component{
+export default class FormulaaireInscription extends Component {
+  constructor(props) {
+    super(props);
 
+    this.onChangeNom = this.onChangeNom.bind(this);
+    this.onChangePrenom = this.onChangePrenom.bind(this);
+    this.onChangeCIN = this.onChangeCIN.bind(this);
+    this.onChangeCNE = this.onChangeCNE.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangeTel = this.onChangeTel.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
-	constructor(props) {
-        super(props);
+    this.state = {
+      Nom: '',
+      Prenom: '',
+      CIN: '',
+      CNE: '',
+      Email :'',
+      Tel : ''
 
-        this.onChangeNom = this.onChangeNom.bind(this);
-        this.onChangePrenom= this.onChangePrenom.bind(this);
-        this.onChangeCIN= this.onChangeCIN.bind(this);
-        this.onChangeCNE= this.onChangeCNE.bind(this);
-        this.onChangeEmail= this.onChangeEmail.bind(this);
-        this.onChangeTel= this.onChangeTel.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-
-
-
-		this.state = {
-            Nom : '',
-            Prenom : '',
-            CIN : '',
-            CNE : '',
-            Tel : '',
-            Email : ''
-		 
-		}
-      }
-      
-      
-    
-	  //recuperer CIN
-	  onChangePrenom=(e) =>{
-		this.setState({
-		  Prenom : e.target.value
-		})
-	  }
-     // recuperer Nom
-	  onChangeNom=(e)=>{
-		  this.setState({
-			  Nom : e.target.value
-		  })
-      }
-      // recuperer CIN
-      onChangeCIN=(e)=>{
-
-         this.setState({
-             CIN : e.target.value
-         })
-
-      }
-      //recuperer CNE
-      onChangeCNE=(e)=>{
-
-        this.setState({
-            CNE : e.target.value
-        })
-      }
-      //recuperer  Email
-      onChangeEmail=(e)=>{
-          
-        this.setState({
-            Email : e.target.value
-        })
-      }
-
-      //recupere  Tel
-      onChangeTel=(e)=>{
-
-        this.setState({
-            Tel : e.target.value
-        })
-      }
-
-	  onSubmit=(e)=>{
-		e.preventDefault();
-        const  data={
-		Prenom : this.state.Prenom,
-        Nom: this.state.Nom,
-        CIN : this.state.CIN,
-        CNE :this.state.CNE,
-        Email :this.state.Email,
-        Tel :this.state.Tel
-
-       }
-
-       axios.post('http://localhost:4000/etudiant/add', data)
-	   .then(res => console.log(res.data));
-       window.location = "/gestionetudiant";
-       
     }
-	  
-	  
+  }
 
-render(){
+  
 
-    return(
-		<div  className="container">
-        <div className="container-contact100">
-        <div className="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
-        
-        <div className="wrap-contact100">
-            <form className="contact100-form validate-form">
-                <span className="contact100-form-title">
-                   Inscription
-                </span>
-        
-                <div className="wrap-input100 validate-input" data-validate="Name is required">
-                    <input className="input100"  name="nom" placeholder="NOM" 
-							value={this.state.NOM} onChange={this.onChangeNOM} autoComplete="NOM" required/>
-                    <span className="focus-input100-1"></span>
-                    <span className="focus-input100-2"></span>
-                </div>
-        
-                <div className="wrap-input100 validate-input" >
-                    <input className="input100" type="text" name="prenom" placeholder="Prenom"  onChange={this.onChangePrenom} autoComplete="email" required/>
-                    <span className="focus-input100-1"></span>
-                    <span className="focus-input100-2"></span>
-                </div>
+  onChangeNom(e) {
+    this.setState({
+      Nom: e.target.value
+    })
+  }
+  onChangePrenom(e) {
+    this.setState({
+      Prenom: e.target.value
+    })
+  }
 
-                <div className="wrap-input100 validate-input" >
-                    <input className="input100" type="text" name="cin" placeholder="CIN"  onChange={this.onChangeCIN} autoComplete="cin" required/>
-                    <span className="focus-input100-1"></span>
-                    <span className="focus-input100-2"></span>
-                </div>
-                <div className="wrap-input100 validate-input" >
-                    <input className="input100" type="text" name="cne" placeholder="CNE"  onChange={this.onChangeCNE} autoComplete="cin" required/>
-                    <span className="focus-input100-1"></span>
-                    <span className="focus-input100-2"></span>
-                </div>
+  onChangeCIN(e) {
+    this.setState({
+     CIN: e.target.value
+    })
+  }
 
-                <div className="wrap-input100 validate-input" >
-                    <input className="input100" type="text" name="email" placeholder="Email"  onChange={this.onChangeEmail} autoComplete="email" required/>
-                    <span className="focus-input100-1"></span>
-                    <span className="focus-input100-2"></span>
-                </div>
+  onChangeCNE(e) {
+    this.setState({
+      CNE: e.target.value
+    })
+  }
 
-                <div className="wrap-input100 validate-input" >
-                    <input className="input100" type="text" name="tel" placeholder="Telephone"  onChange={this.onChangeTel} autoComplete="tel" required/>
-                    <span className="focus-input100-1"></span>
-                    <span className="focus-input100-2"></span>
-                </div>
-                <div className="container-contact100-form-btn ">
-                    <button className="contact100-form-btn   "   onClick={this.onSubmit}  value="Login">
-                      Sauvegarder
+  onChangeEmail(e) {
+    this.setState({
+      Email :e.target.value
+    })
+  }
+
+
+  onChangeTel(e) {
+    this.setState({
+      Tel:e.target.value
+    })
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const data = {
+      Nom: this.state.Nom,
+      Prenom: this.state.Prenom,
+      CIN: this.state.CIN,
+      CNE: this.state.CNE,
+      Email: this.state.Email,
+      Tel :this.state.Tel
+    }
+
+    console.log(data);
+
+    axios.post('http://localhost:7000/etudiant/add', data)
+      .then(res => console.log(res.data));
+
+   
+  }
+
+  render() {
+    return (
+    <div>
+      <h3></h3>
+      <form onSubmit={this.onSubmit} className="contact100-form validate-form">
+      <div className="form-group"> 
+          <label>Nom: </label>
+          <input  type="text"
+              required
+              className="form-control"
+              value={this.state.Nom}
+              onChange={this.onChangeNom}
+              />
+        </div>
+        <div className="form-group"> 
+          <label>Prenom : </label>
+          <input  type="text"
+              required
+              className="form-control"
+              value={this.state.Prenom}
+              onChange={this.onChangePrenom}
+              />
+        </div>
+        <div className="form-group"> 
+          <label>CIN: </label>
+          <input  type="text"
+              required
+              className="form-control"
+              value={this.state.CIN}
+              onChange={this.onChangeCIN}
+              />
+        </div>
+        <div className="form-group">
+          <label>CNE: </label>
+          <input 
+              type="text" 
+              className="form-control"
+              value={this.state.CNE}
+              onChange={this.onChangeCNE}
+              />
+        </div>
+        <div className="form-group">
+          <label>Email: </label>
+          <input 
+              type="text" 
+              className="form-control"
+              value={this.state.Email}
+              onChange={this.onChangeEmail}
+              />
+        </div>
+        <div className="form-group">
+          <label>Tel: </label>
+          <input 
+              type="text" 
+              className="form-control"
+              value={this.state.Tel}
+              onChange={this.onChangeTel}
+              />
+        </div>
+
+        <div className="container-contact100-form-btn ">
+                    <button className="contact100-form-btn   "     value="Login">
+                      Ajouter
                     </button>
                 </div>
-            </form>
-           
-        </div>
-        </div>
-        </div>
-                         
-      
-        );
+         
+       
+      </form>
+    </div>
+    )
+  }
 }
-
-
-
-
-}
-export default   FormulaaireInscription;
-
-
-
- 
-        
-        

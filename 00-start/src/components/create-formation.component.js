@@ -29,7 +29,7 @@ export default class CreateFormation extends Component {
 
     console.log(user);
 
-    axios.post('http://localhost:4000/formation/add', user)
+    axios.post('http://localhost:7000/formation/add', user)
       .then(res => console.log(res.data));
 
     this.setState({

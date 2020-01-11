@@ -26,7 +26,7 @@ export default class CreateFiliere extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/formation/')
+    axios.get('http://localhost:7000/formation/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -83,7 +83,7 @@ export default class CreateFiliere extends Component {
 
     console.log(feliere);
 
-    axios.post('http://localhost:4000/filiere/add', feliere)
+    axios.post('http://localhost:7000/filiere/add', feliere)
       .then(res => console.log(res.data));
 
     window.location = '/gestionfeliere';

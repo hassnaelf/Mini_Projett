@@ -165,7 +165,7 @@ export default class Editprof extends Component {
         </div>
 
         <div className="form-group">
-          <label>Tel  : </label>
+          <label>Téléphone: </label>
           <input 
               type="text" 
               className="form-control"

@@ -6,7 +6,7 @@
     "@babel/core": "^7.7.7",
     "@babel/node": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
